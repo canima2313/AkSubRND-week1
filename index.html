@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link href="styles.css" rel="stylesheet" type="text/css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans:wght@300..700&family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+      <h1>Login to your account</h1>
+      <p style="margin-top: -1rem; margin-bottom: 3rem;color: darkgray;">Enter your credentials to login to your account</p>
+      <form id="form">
+        <p class="sub">Email</p>
+        <input id="email" placeholder="johndoe@gmail.com"/>
+        <p class="error1 error"></p>
+        <p class="sub">Password</p>
+        <input type="password" id="pwd" placeholder="*******"/>
+        <p class="error2 error"></p>
+        <button type="submit">Login</button>
+      </form>
+        <span>Don't have an account yet? <a href="register.html">Create an account</a></span>
+    </div>
+
+    <script>
+      const form = document.getElementById("form");
+      const emailInput = document.getElementById("email");
+      const pwdInput = document.getElementById("pwd");
+
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        const users = JSON.parse(localStorage.getItem("userDatabase")) || [];
+
+        const user = users.find(u => u.email === emailInput.value.trim());
+        if (user && user.password === pwdInput.value){
+          alert("Login success");
+        }else if (!user){
+          document.querySelector(".error1").textContent="email does not exist";
+          document.querySelector(".error2").textContent="";
+        }else if (user && user.password !== pwdInput.pwdInput){
+          document.querySelector(".error1").textContent="";
+          document.querySelector(".error2").textContent="Incorrect password";
+        }
+      })
+    </script>
+</body>
+</html>
