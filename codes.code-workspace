@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"name": "codes",
+			"path": ".."
+		},
+		{
+			"name": "3x4_attempt_2",
+			"path": "C:/Users/USER/qmk_firmware/keyboards/3x4_attempt_2"
+		},
+		{
+			"name": "BeamIt-v3 (ini version baru tan ada ascii artnya skrg)",
+			"path": "../../BeamIt-v3 (ini version baru tan ada ascii artnya skrg)"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"bit": "c",
+			"stdlib.h": "c"
+		},
+		"liveServer.settings.multiRootWorkspaceName": "codes"
+	}
+}
